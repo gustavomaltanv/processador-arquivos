@@ -1,10 +1,10 @@
-# SimpleCsvProcessor
+# ExampleProcessor
 
-O **SimpleCsvProcessor** é um serviço em .NET que monitora um diretório para arquivos CSV, processa esses arquivos e os move para uma pasta de backup após o processamento. Ele foi projetado para ser executado como um serviço hospedado no Windows.
+O **ExampleProcessor** é um serviço em .NET que monitora um diretório para chegada/alterações de arquivos, processa esses arquivos e os move para uma pasta de backup após o processamento. Ele foi projetado para ser executado como um serviço hospedado no Windows.
 
 ## Funcionalidades
 
-- Monitora um diretório configurável para arquivos CSV.
+- Monitora um diretório configurável para arquivos.
 - Processa os arquivos encontrados (exemplo: inserção em banco de dados ou outras operações).
 - Move os arquivos processados para uma pasta de backup.
 - Controla a concorrência no processamento de arquivos para evitar sobrecarga.
@@ -13,7 +13,7 @@ O **SimpleCsvProcessor** é um serviço em .NET que monitora um diretório para 
 
 ### Arquivo `appsettings.json`
 
-O arquivo `appsettings.json` contém as configurações principais do projeto:
+O arquivo `appsettings.json` contém as configurações principais de um projeto exemplo:
 
 ```json
 {
@@ -31,6 +31,6 @@ O arquivo `appsettings.json` contém as configurações principais do projeto:
 ## Como Executar como Windows Service
 Este projeto foi projetado para ser executado como um Windows Service. Para instalar o serviço, siga os passos abaixo:
 
-1. Publique o projeto em um diretório específico: ```dotnet publish -c Release -o C:\SimpleCsvProcessor```
-2. Use o comando sc para criar o serviço no Windows:```sc create SimpleCsvProcessor binPath= "C:\SimpleCsvProcessor\SimpleCsvProcessor.exe"```
-3. Inicie o serviço: ```sc start SimpleCsvProcessor```
+1. Publique o projeto em um diretório específico: ```dotnet publish -c Release -o C:\ExampleProcessor```
+2. Use o comando sc para criar o serviço no Windows:```sc create ExampleProcessor binPath= "C:\ExampleProcessor\ExampleProcessor.exe"```
+3. Inicie o serviço: ```sc start ExampleProcessor```
