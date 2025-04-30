@@ -1,17 +1,17 @@
-﻿namespace SimpleCsvProcessor
+﻿namespace ExampleProcessor.Application
 {
-    public delegate Task CsvEncontradoHandler(string caminhoArquivo);
-    internal class CsvWatcherService : BackgroundService
+    public delegate Task EventHandler(string caminhoArquivo);
+    internal class FileWatcherService : BackgroundService
     {
         private readonly string _diretorioCsv;
-        private readonly ILogger<CsvWatcherService> _logger;
+        private readonly ILogger<FileWatcherService> _logger;
         private Timer? _timer;
         private readonly TimeSpan _intervaloVerificacao = TimeSpan.FromSeconds(60);
         private readonly SemaphoreSlim _semaforo;
         private readonly int _limiteConcorrencia = 5;
 
-        public event CsvEncontradoHandler? AoEncontrarCsv;
-        public CsvWatcherService(string diretorioCsv, ILogger<CsvWatcherService> logger)
+        public event EventHandler? AoEncontrarCsv;
+        public FileWatcherService(string diretorioCsv, ILogger<FileWatcherService> logger)
         {
             _diretorioCsv = diretorioCsv;
             _logger = logger;

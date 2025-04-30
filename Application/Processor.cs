@@ -1,4 +1,4 @@
-﻿namespace SimpleCsvProcessor
+﻿namespace ExampleProcessor.Application
 {
     internal class Processor : IProcessor
     {
